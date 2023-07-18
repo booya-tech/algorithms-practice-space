@@ -1,29 +1,27 @@
 import Foundation
 
 func selectionSort(input: [Int]) -> [Int] {
-    guard input.count > 1 else {
-        return input
-    }
-     
+    
+    guard input.count > 1 else { return input }
+        
     var result = input
     
-    for index in 0..<(result.count - 1) {
-        var indexLowest = index
-        
+    for index in 0..<result.count {
+        var lowestIndex = index
         for nextIndex in (index + 1)..<result.count {
-            if result[nextIndex] < result[indexLowest] {
-                indexLowest = nextIndex
+            if result[nextIndex] < result[lowestIndex] {
+                lowestIndex = nextIndex
             }
         }
-        
-        if index != indexLowest {
-            result.swapAt(index, indexLowest)
+        if index != lowestIndex {
+            result.swapAt(index, lowestIndex)
         }
     }
     
     return result
 }
 
-let array = [2, 3, 5, 1]
+let inputArray = [2, 5, 7, 3, 1]
+var result = selectionSort(input: inputArray)
 
-print(selectionSort(input: array))
+print(result)
