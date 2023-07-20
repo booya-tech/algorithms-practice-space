@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 func bubbleSort(_ input: [Int]) -> [Int] {
     guard input.count > 1 else {
@@ -14,11 +14,9 @@ func bubbleSort(_ input: [Int]) -> [Int] {
         
         for index in 1..<result.count {
             
-            if (result[index] < result[index - 1]) {
-                
-                result.swapAt(index, (index - 1))
+            if result[index] < result[index - 1] {
+                result.swapAt(index, index - 1)
                 isSwapped = true
-                
             }
             
         }
@@ -28,5 +26,6 @@ func bubbleSort(_ input: [Int]) -> [Int] {
     return result
 }
 
-let input = [5, 3, 4, 2, 1,] // expected output : [1, 2, 3, 4, 5]
-print(bubbleSort(input))
+let array = [3, 5 ,1 ,2, 7] // Expected Output = [1, 2, 3, 5, 7]
+let result = bubbleSort(array)
+print(result)
